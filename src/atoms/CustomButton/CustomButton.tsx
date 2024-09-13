@@ -33,4 +33,4 @@ const CustomButton = (props: buttonProps) => {
   );
 };
 
-export default CustomButton;
+export default React.memo(CustomButton);

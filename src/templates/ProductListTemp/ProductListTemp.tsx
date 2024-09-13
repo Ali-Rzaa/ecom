@@ -18,4 +18,4 @@ const ProductListTemp = () => {
   );
 };
 
-export default ProductListTemp;
+export default React.memo(ProductListTemp);

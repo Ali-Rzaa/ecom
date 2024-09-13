@@ -11,4 +11,4 @@ const CustomText = (props: TextProps) => {
   return <Text style={[styles.title, textStyle]}>{title}</Text>;
 };
 
-export default CustomText;
+export default React.memo(CustomText);

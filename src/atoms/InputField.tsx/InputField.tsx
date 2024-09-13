@@ -1,10 +1,17 @@
 import React from 'react';
-import {StyleProp, TextInput, View, ViewStyle} from 'react-native';
+import {
+  KeyboardType,
+  StyleProp,
+  TextInput,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {styles} from './styles';
 
 type inputProps = {
   value: string;
   placeholder: string;
+  keyboardType?: KeyboardType;
   inputStyle?: StyleProp<ViewStyle>;
   inputFieldStyle?: StyleProp<ViewStyle>;
   onChangeText: (e: any) => void;
@@ -13,6 +20,7 @@ const InputField = (props: inputProps) => {
   const {
     value,
     placeholder = 'Please enter text',
+    keyboardType = 'default',
     inputStyle = {},
     inputFieldStyle = {},
     onChangeText = (e: any) => {},
@@ -22,6 +30,7 @@ const InputField = (props: inputProps) => {
       <TextInput
         value={value}
         placeholder={placeholder}
+        keyboardType={keyboardType ? keyboardType : 'default'}
         onChangeText={e => onChangeText(e)}
         cursorColor={'gray'}
         style={[styles.inputStyle, inputStyle]}
@@ -31,4 +40,4 @@ const InputField = (props: inputProps) => {
   );
 };
 
-export default InputField;
+export default React.memo(InputField);
